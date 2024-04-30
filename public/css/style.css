@@ -34,10 +34,36 @@ main {
     gap: 20px;
 }
 
+main > h1 {
+    align-self: center;
+}
+
 fieldset {
     display: flex;
     flex-direction: column;
     padding: 15px 20px 20px;
     gap: 10px;
     align-items: baseline;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post > a {
+    align-self: center;
+    font-weight: bolder;
+    color: black;
+    font-size: 1.3rem;
+    text-decoration: none;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
 }

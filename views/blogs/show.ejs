@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title><%= blog.postTitle %></title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <main>
+        <h1><%= blog.postTitle %></h1>
+        <div class="post">
+            <p><%= blog.message %></p>
+            <p>Has img: <%= blog.hasImg %></p>
+            <p><small>Posted by <%= blog.userName %></small></p>
+        </div>
+        <div class="options" method="post">
+            <form action="/blogs/<%= blog.id %>/edit" method="get">
+                <button type="submit">Edit Blog</button>
+            </form>
+            <form action="/blogs/<%= blog.id %>?_method=delete" method="post">
+                <button type="submit">Delete Blog</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

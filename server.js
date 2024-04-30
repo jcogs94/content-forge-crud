@@ -7,10 +7,13 @@ const app = express()
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI)
 
+const methodOverride = require('method-override')
+
 const Blog = require('./models/blog.js')
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 
 
 // ============= ROUTES =====================
@@ -64,6 +67,25 @@ app.post('/blogs', async (req, res) => {
 
     newBlog.hasImg = hasImg
     await Blog.create(newBlog)
+    res.redirect('/blogs')
+})
+
+app.get('/blogs/:id', async (req, res) => {
+    const foundBlog = await Blog.findById(req.params.id)
+    res.render('./blogs/show.ejs', {
+        blog: foundBlog
+    })
+})
+
+app.get('/blogs/:id/edit', async (req, res) => {
+    const foundBlog = await Blog.findById(req.params.id)
+    res.render('./blogs/edit.ejs', {
+        blog: foundBlog
+    })
+})
+
+app.delete('/blogs/:id', async (req, res) => {
+    await Blog.findByIdAndDelete(req.params.id)
     res.redirect('/blogs')
 })
 // ============= ROUTES =====================
