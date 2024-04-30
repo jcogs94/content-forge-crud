@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>All Posts</title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <main>
+        <h1>All Posts</h1>
+        <% categories.forEach( (category) => { %>
+            <h2><%= category %></h2>
+            <% allBlogsByCategory[category].forEach( (blog) => { %>
+                <h4><%= blog.postTitle %></h4>
+                <p><%= blog.message %></p>
+                <p>Has img: <%= blog.hasImg %></p>
+                <p><small>Posted by <%= blog.userName %></small></p>
+            <% }) %>
+        <% }) %>
+    </main>
+</body>
+</html>
