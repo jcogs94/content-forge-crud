@@ -7,7 +7,7 @@ const showLinkBox = () => {
     
     const linkLabelElement = document.createElement('label')
     linkLabelElement.setAttribute('for', 'imgLink')
-    linkLabelElement.innerHTML = "Link: "
+    linkLabelElement.innerHTML = "URL: "
     linkDivElement.appendChild(linkLabelElement)
     
     const linkInputElement = document.createElement('input')
