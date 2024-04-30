@@ -74,11 +74,11 @@
                     <label for="yesNoBoxes">Would you like to add images?</label>
                     <div name="yesNoBoxes">
                         <label for="imgYes">Yes</label>
-                        <input type="checkbox" name="imgYes" <% if(blog.hasImg) { %>
+                        <input type="radio" id="imgYes" name="hasImg" value="yes" <% if(blog.hasImg) { %>
                                 checked
                             <% } %>>
                         <label for="imgNo">No</label>
-                        <input type="checkbox" name="imgNo" <% if(!blog.hasImg) { %>
+                        <input type="radio" id="imgNo" name="hasImg" value="no" <% if(!blog.hasImg) { %>
                             checked
                         <% } %>>
                     </div>

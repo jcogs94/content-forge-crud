@@ -53,19 +53,12 @@ app.get('/blogs/new', (req,res) => {
 app.post('/blogs', async (req, res) => {
     let newBlog = (req.body)
     
-    let reqKeys = Object.keys(newBlog)
-    let hasImg = false
-
-    reqKeys.forEach( (key) => {
-        if (key === 'imgYes') {
-            delete newBlog.imgYes
-            hasImg = true
-        } else if (key === 'imgNo') {
-            delete newBlog.imgNo
-        }
-    })
-
-    newBlog.hasImg = hasImg
+    if(newBlog.hasImg === 'yes') {
+        newBlog.hasImg === true
+    } else {
+        newBlog.hasImg === false
+    }
+    
     await Blog.create(newBlog)
     res.redirect('/blogs')
 })
@@ -86,19 +79,13 @@ app.get('/blogs/:id/edit', async (req, res) => {
 
 app.put('/blogs/:id', async (req, res) => {
     let updatedBlog = (req.body)
-    let reqKeys = Object.keys(updatedBlog)
-    let hasImg = false
-
-    reqKeys.forEach( (key) => {
-        if (key === 'imgYes') {
-            delete updatedBlog.imgYes
-            hasImg = true
-        } else if (key === 'imgNo') {
-            delete updatedBlog.imgNo
-        }
-    })
-
-    updatedBlog.hasImg = hasImg
+    
+    if(updatedBlog.hasImg === 'yes') {
+        updatedBlog.hasImg === true
+    } else {
+        updatedBlog.hasImg === false
+    }
+    
     await Blog.findByIdAndUpdate(req.params.id, updatedBlog)
     res.redirect('/blogs')
 })
