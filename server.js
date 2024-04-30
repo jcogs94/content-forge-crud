@@ -18,13 +18,32 @@ app.get('/', (req, res) => {
     res.render('index.ejs')
 })
 
+app.get('/blogs', (req, res) => {
+    res.render('./blogs/index.ejs')
+})
+
 app.get('/blogs/new', (req,res) => {
     res.render('./blogs/new.ejs')
 })
 
-app.post('/blogs', (req, res) => {
-    res.send(req.body)
-    // res.redirect('/')
+app.post('/blogs', async (req, res) => {
+    let newBlog = (req.body)
+    
+    let reqKeys = Object.keys(newBlog)
+    let hasImg = false
+
+    reqKeys.forEach( (key) => {
+        if (key === 'imgYes') {
+            delete newBlog.imgYes
+            hasImg = true
+        } else if (key === 'imgNo') {
+            delete newBlog.imgNo
+        }
+    })
+
+    newBlog.hasImg = hasImg
+    await Blog.create(newBlog)
+    res.redirect('/')
 })
 // ============= ROUTES =====================
 
