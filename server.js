@@ -9,6 +9,13 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const Blog = require('./models/blog.js')
 
+app.use(express.static('public'))
+
+
+app.get('/', (req, res) => {
+    res.render('index.ejs')
+})
+
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to database...')
