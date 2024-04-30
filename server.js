@@ -84,6 +84,25 @@ app.get('/blogs/:id/edit', async (req, res) => {
     })
 })
 
+app.put('/blogs/:id', async (req, res) => {
+    let updatedBlog = (req.body)
+    let reqKeys = Object.keys(updatedBlog)
+    let hasImg = false
+
+    reqKeys.forEach( (key) => {
+        if (key === 'imgYes') {
+            delete updatedBlog.imgYes
+            hasImg = true
+        } else if (key === 'imgNo') {
+            delete updatedBlog.imgNo
+        }
+    })
+
+    updatedBlog.hasImg = hasImg
+    await Blog.findByIdAndUpdate(req.params.id, updatedBlog)
+    res.redirect('/blogs')
+})
+
 app.delete('/blogs/:id', async (req, res) => {
     await Blog.findByIdAndDelete(req.params.id)
     res.redirect('/blogs')

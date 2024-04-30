@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Edit <%= blog.postTitle %></title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <main>
+        <h1>Edit</h1>
+        <form action="/blogs/<%= blog.id %>?_method=put" method="post">
+            <fieldset aria-labelledby="new-blog-legend">
+                <legend id="new-blog-legend"><%= blog.postTitle %></legend>
+                <div>
+                    <label for="userName">Username: </label>
+                    <input type="text" name="userName" value="<%= blog.userName %>">
+                </div>
+                <div>
+                    <label for="postTitle">Title: </label>
+                    <input type="text" name="postTitle" value="<%= blog.postTitle %>">
+                </div>
+                <div>
+                    <label for="category">Category: </label>
+                    <select name="category">
+                        <option value="none" <% if (blog.category === 'none') { %>
+                            selected='selected'
+                        <% } %>
+                        > - select type - </option>
+                        <option value="Food" <% if (blog.category === 'Food') { %>
+                            selected='selected'
+                        <% } %>
+                        >Food</option>
+                        <option value="Travel" <% if (blog.category === 'Travel') { %>
+                            selected='selected'
+                        <% } %>
+                        >Travel</option>
+                        <option value="Lifestyle" <% if (blog.category === 'Lifestyle') { %>
+                            selected='selected'
+                        <% } %>
+                        >Lifestyle</option>
+                        <option value="Technology" <% if (blog.category === 'Technology') { %>
+                            selected='selected'
+                        <% } %>
+                        >Technology</option>
+                        <option value="Finance" <% if (blog.category === 'Finance') { %>
+                            selected='selected'
+                        <% } %>
+                        >Finance</option>
+                        <option value="DIY" <% if (blog.category === 'DIY') { %>
+                            selected='selected'
+                        <% } %>
+                        >DIY</option>
+                        <option value="Business" <% if (blog.category === 'Business') { %>
+                            selected='selected'
+                        <% } %>
+                        >Business</option>
+                        <option value="Education" <% if (blog.category === 'Education') { %>
+                            selected='selected'
+                        <% } %>
+                        >Education</option>
+                        <option value="Other" <% if (blog.category === 'Other') { %>
+                            selected='selected'
+                        <% } %>
+                        >Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message">Message: </label>
+                    <textarea name="message"><%= blog.message %></textarea>
+                </div>
+                <div>
+                    <label for="yesNoBoxes">Would you like to add images?</label>
+                    <div name="yesNoBoxes">
+                        <label for="imgYes">Yes</label>
+                        <input type="checkbox" name="imgYes" <% if(blog.hasImg) { %>
+                                checked
+                            <% } %>>
+                        <label for="imgNo">No</label>
+                        <input type="checkbox" name="imgNo" <% if(!blog.hasImg) { %>
+                            checked
+                        <% } %>>
+                    </div>
+                </div>
+                <button type="submit">Update Blog</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>
