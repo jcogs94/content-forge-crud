@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Create New Blog</title>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %>
+    <main>
+        <h1>Create New Blog</h1>
+        <form action="/blogs" method="post">
+            <fieldset aria-labelledby="new-blog-legend">
+                <legend id="new-blog-legend">New Blog</legend>
+                <div>
+                    <label for="userName">Username: </label>
+                    <input type="text" name="userName">
+                </div>
+                <div>
+                    <label for="postTitle">Title: </label>
+                    <input type="text" name="postTitle">
+                </div>
+                <div>
+                    <label for="category">Category: </label>
+                    <select name="category">
+                        <option value="none"> - select type - </option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Lifestyle">Lifestyle</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Finance">Finance</option>
+                        <option value="DIY">DIY</option>
+                        <option value="Business">Business</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="message">Message: </label>
+                    <textarea name="message"></textarea>
+                </div>
+                <div>
+                    <label for="yesNoBoxes">Would you like to add images?</label>
+                    <div name="yesNoBoxes">
+                        <label for="imgYes">Yes</label>
+                        <input type="checkbox" name="imgYes">
+                        <label for="imgNo">No</label>
+                        <input type="checkbox" name="imgNo">
+                    </div>
+                </div>
+                <button type="submit">Post Blog</button>
+            </fieldset>
+        </form>
+    </main>
+</body>
+</html>

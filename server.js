@@ -17,7 +17,9 @@ app.get('/', (req, res) => {
     res.render('index.ejs')
 })
 
-
+app.get('/blogs/new', (req,res) => {
+    res.render('./blogs/new.ejs')
+})
 // ============= ROUTES =====================
 
 
