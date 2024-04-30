@@ -12,9 +12,13 @@ const Blog = require('./models/blog.js')
 app.use(express.static('public'))
 
 
+// ============= ROUTES =====================
 app.get('/', (req, res) => {
     res.render('index.ejs')
 })
+
+
+// ============= ROUTES =====================
 
 
 mongoose.connection.on('connected', () => {

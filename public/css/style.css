@@ -9,3 +9,24 @@ body {
     align-items: center;
     justify-content: flex-start;
 }
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px 0;
+    background-color: lightgray;
+    width: 100%;
+}
+
+nav > a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-family: 900;
+    color: black;
+}
+
+main {
+    margin-top: 20px;
+}
