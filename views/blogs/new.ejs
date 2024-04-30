@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/links.js" defer></script>
     <title>Create New Blog</title>
 </head>
 <body>
@@ -41,15 +42,15 @@
                     <textarea name="message"></textarea>
                 </div>
                 <div>
-                    <label for="yesNoBoxes">Would you like to add images?</label>
-                    <div name="yesNoBoxes">
+                    <label for="yesNoBoxes">Would you like to add an image?</label>
+                    <div name="yesNoBoxes" id="yes-no">
                         <label for="imgYes">Yes</label>
                         <input type="radio" id="imgYes" name="hasImg" value="yes">
                         <label for="imgNo">No</label>
                         <input type="radio" id="imgNo" name="hasImg" value="no">
                     </div>
                 </div>
-                <button type="submit">Post Blog</button>
+                <button type="submit" id="submit-button">Post Blog</button>
             </fieldset>
         </form>
     </main>

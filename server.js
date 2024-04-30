@@ -52,11 +52,13 @@ app.get('/blogs/new', (req,res) => {
 
 app.post('/blogs', async (req, res) => {
     let newBlog = (req.body)
-    
+
     if(newBlog.hasImg === 'yes') {
-        newBlog.hasImg === true
+        newBlog.hasImg = true
+
     } else {
-        newBlog.hasImg === false
+        newBlog.hasImg = false
+        newBlog.imgLink = ''
     }
     
     await Blog.create(newBlog)
@@ -81,9 +83,10 @@ app.put('/blogs/:id', async (req, res) => {
     let updatedBlog = (req.body)
     
     if(updatedBlog.hasImg === 'yes') {
-        updatedBlog.hasImg === true
+        updatedBlog.hasImg = true
     } else {
-        updatedBlog.hasImg === false
+        updatedBlog.hasImg = false
+        updatedBlog.imgLink = ''
     }
     
     await Blog.findByIdAndUpdate(req.params.id, updatedBlog)

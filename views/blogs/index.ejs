@@ -15,9 +15,11 @@
             <% allBlogsByCategory[category].forEach( (blog) => { %>
                 <div class="post">
                     <a href="/blogs/<%= blog._id %>"><%= blog.postTitle %></a>
+                    <% if(blog.hasImg) { %>
+                        <img src="<%= blog.imgLink %>">
+                    <% } %>
                     <p><%= blog.message %></p>
-                    <p>Has img: <%= blog.hasImg %></p>
-                    <p><small>Posted by <%= blog.userName %></small></p>
+                    <p><small><em>Posted by <%= blog.userName %></em></small></p>
                 </div>
             <% }) %>
         <% }) %>

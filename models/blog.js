@@ -1,14 +1,12 @@
 const mongoose = require('mongoose')
 
 const blogSchema = new mongoose.Schema({
-    // timePosted: String,
     userName: String,
     postTitle: String,
     category: String,
     message: String,
-    hasImg: Boolean
-    // imgLinks: Array,
-    // tags: Array
+    hasImg: Boolean,
+    imgLink: String
 })
 
 const Blog = mongoose.model('Blog', blogSchema)

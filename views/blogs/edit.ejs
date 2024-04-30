@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/links.js" defer></script>
     <title>Edit <%= blog.postTitle %></title>
 </head>
 <body>
@@ -71,7 +72,7 @@
                     <textarea name="message"><%= blog.message %></textarea>
                 </div>
                 <div>
-                    <label for="yesNoBoxes">Would you like to add images?</label>
+                    <label for="yesNoBoxes">Would you like to add an image?</label>
                     <div name="yesNoBoxes">
                         <label for="imgYes">Yes</label>
                         <input type="radio" id="imgYes" name="hasImg" value="yes" <% if(blog.hasImg) { %>
@@ -83,7 +84,7 @@
                         <% } %>>
                     </div>
                 </div>
-                <button type="submit">Update Blog</button>
+                <button type="submit" id="submit-button">Update Blog</button>
             </fieldset>
         </form>
     </main>
