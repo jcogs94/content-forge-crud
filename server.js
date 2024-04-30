@@ -9,6 +9,7 @@ mongoose.connect(process.env.MONGODB_URI)
 
 const Blog = require('./models/blog.js')
 
+app.use(express.urlencoded({ extended: false }))
 app.use(express.static('public'))
 
 
@@ -19,6 +20,11 @@ app.get('/', (req, res) => {
 
 app.get('/blogs/new', (req,res) => {
     res.render('./blogs/new.ejs')
+})
+
+app.post('/blogs', (req, res) => {
+    res.send(req.body)
+    // res.redirect('/')
 })
 // ============= ROUTES =====================
 
